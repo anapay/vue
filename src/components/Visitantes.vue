@@ -6,24 +6,20 @@
     <p>email: {{cliente.email}}</p>
     <hr />
     <p v-if="showIdade === true">Idade: {{cliente.idade}}</p>
-    <p v-else> O usuário escondeu a idade!</p>
-   
+    <p v-else>O usuário escondeu a idade!</p>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return { 
+    return {
       isPremium: false
-    }
+    };
   },
   props: {
-
     cliente: Object,
     showIdade: Boolean
-
-
   }
 };
 </script>
@@ -44,7 +40,6 @@ export default {
   height: 250;
   padding: 14px;
   margin-top: 15px;
-
 }
 </style>
 
