@@ -1,8 +1,13 @@
 <template>
   <div id="app">
-    <Visitantes :cliente="cliente1" :showIdade="true" />
-    <Visitantes :cliente="cliente2" :showIdade="false" />
-    <Visitantes :cliente="cliente3" :showIdade="true" />
+    <div v-for="(cliente,index) in clientes" :key="cliente.id">
+      <h3>{{ index +1 }}</h3>
+      <Visitantes :cliente="cliente" />
+      <hr />
+      <h4>Edição:</h4>
+      <input type="text" v-model="cliente.nome" />
+      <input type="text" v-model="cliente.email" />
+    </div>
   </div>
 </template>
 
@@ -12,21 +17,32 @@ export default {
   name: "App",
   data() {
     return {
-      cliente1: {
-        nome: "Cliente1",
-        email: "Cliente1@gmail.com",
-        idade: 23
-      },
-      cliente2: {
-        nome: "Cliente2",
-        email: "Cliente2@gmail.com",
-        idade: 26
-      },
-      cliente3: {
-        nome: "Cliente3",
-        email: "Cliente3@gmail.com",
-        idade: 24
-      }
+      clientes: [
+        {
+          id: 1,
+          nome: "Cliente1",
+          email: "Cliente1@gmail.com",
+          idade: 23
+        },
+        {
+          id: 4,
+          nome: "Cliente2",
+          email: "Cliente2@gmail.com",
+          idade: 26
+        },
+        {
+          id: 6,
+          nome: "Cliente3",
+          email: "Cliente3@gmail.com",
+          idade: 24
+        },
+        {
+          id: 9,
+          nome: "Cliente4",
+          email: "Cliente4@gmail.com",
+          idade: 24
+        }
+      ]
     };
   },
   components: {
