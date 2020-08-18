@@ -1,12 +1,14 @@
 <template>
   <div id="app">
+    <h3>Cadastro: </h3>
+    <input type="text" placeholder="nome" v-model="nomeField"> <br>
+    <input type="text" placeholder="email" v-model="emailField"> <br>
+    <input type="number" placeholder="idade" v-model="idadeField"> <br>
+    <button @click="cadastrarUsuario"> Cadastrre-se! </button>
+    <hr>
     <div v-for="(cliente,index) in clientes" :key="cliente.id">
       <h3>{{ index +1 }}</h3>
       <Visitantes :cliente="cliente" />
-      <hr />
-      <h4>Edição:</h4>
-      <input type="text" v-model="cliente.nome" />
-      <input type="text" v-model="cliente.email" />
     </div>
   </div>
 </template>
@@ -17,6 +19,9 @@ export default {
   name: "App",
   data() {
     return {
+      nomeField: "",
+      emailField: "",
+      idadeField: 0,
       clientes: [
         {
           id: 1,
@@ -29,26 +34,23 @@ export default {
           nome: "Cliente2",
           email: "Cliente2@gmail.com",
           idade: 26
-        },
-        {
-          id: 6,
-          nome: "Cliente3",
-          email: "Cliente3@gmail.com",
-          idade: 24
-        },
-        {
-          id: 9,
-          nome: "Cliente4",
-          email: "Cliente4@gmail.com",
-          idade: 24
         }
+        
       ]
     };
   },
   components: {
-    Visitantes
+    Visitantes,
+  },
+  methods: {
+    cadastrarUsuario: function() {
+      this.clientes.push({nome: this.nomeField, email: this.emailField, idade: this.idadeField, id: Date.now()})
+      this.nomeField = "";
+      this.emailField = "";
+      this.idadeField = 0;
+    }
   }
-};
+}
 </script>
 
 <style>
