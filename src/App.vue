@@ -44,10 +44,14 @@ export default {
   },
   methods: {
     cadastrarUsuario: function() {
-      this.clientes.push({nome: this.nomeField, email: this.emailField, idade: this.idadeField, id: Date.now()})
+      if(this.nomeField == "" || this.nomeField == " "  || this.nomeField.length < 3){
+        console.log("Erro de validação.");
+      }else {
+        this.clientes.push({nome: this.nomeField, email: this.emailField, idade: this.idadeField, id: Date.now()})
       this.nomeField = "";
       this.emailField = "";
       this.idadeField = 0;
+      }
     }
   }
 }
