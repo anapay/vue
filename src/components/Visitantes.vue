@@ -33,7 +33,7 @@ export default {
     },
     emitirEventoDelete: function() {
       console.log("Emitindo do filho");
-      this.$emit("meDelete");
+      this.$emit("meDelete", {idDoCliente: this.cliente.id, curso: "em promoção", promoção: true, component: this });
       
 
     }
