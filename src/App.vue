@@ -66,7 +66,9 @@ export default {
     },
     deletarUsuario: function($event) {
       console.log("recebendo evento");
-      console.log($event.idDoCliente);
+      var id =$event.idDoCliente;
+      var novoArray = this.clientes.filter(cliente => cliente.id != id);
+      this.clientes = novoArray;
       
     }
   }
